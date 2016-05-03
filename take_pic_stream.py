@@ -12,6 +12,7 @@ import pygame
 GPIO.setmode(GPIO.BCM) 
 GPIO.setup(17,GPIO.IN,pull_up_down=GPIO.PUD_UP) #Set up button input on pin 17
 #Button is a pull-up resistor https://learn.sparkfun.com/tutorials/pull-up-resistors
+GPIO.setup(22,GPIO.IN,pull_up_down=GPIO.PUD_UP) #Set up button input on pin 17
 
 WIDTH=1280
 HEIGHT=1024
@@ -30,7 +31,8 @@ count=1
 
 while True: #Checking if button has been pressed
     button_unpressed=GPIO.input(17) #Normally the button is unpressed
-    
+    button_unpressed_camera=GPIO.input(22) #Normally the button is unpressed
+
 #    camera.start_preview()
   #  sleep(0.1)
 #    stream=io.BytesIO()
@@ -64,7 +66,16 @@ while True: #Checking if button has been pressed
 
         #Save picture
         camera.capture('image'+repr(count)+'.jpg')
-   #     pygame.display.update()
+        text="Took a Picture!"
+        FONTSIZE=50
+        font=pygame.font.Font(None,FONTSIZE)
+        font_surf=font.render(text,True,pygame.Color(255,255,0))
+        font_rect=font_surf.get_rect()
+        font_rect.left=100
+        font_rect.top=100
+        screen.blit(font_surf,font_rect)
+        pygame.display.update()
         count+=1
-    
+    if button_unpressed_camera==False:
+        pygame.quit()
 
