@@ -33,11 +33,14 @@ while True: #Checking if button has been pressed
     
 #    camera.start_preview()
   #  sleep(0.1)
-    camera.capture('image.gif',format='gif',resize=(WIDTH,HEIGHT))
-    pygame.display.update()
+#    stream=io.BytesIO()
+
+    camera.capture('image.jpg')
  #   camera.stop_preview()
-    img=pygame.image.load('image.gif')
+    img=pygame.image.load('image.jpg')
     screen.blit(img,(0,0))
+    pygame.display.flip()
+
     if button_unpressed==False:
         print ('Button Pressed')
     #    sleep(0.2)
