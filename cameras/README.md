@@ -1,6 +1,6 @@
 # Girls Who Build Cameras
 ##### Final Code for Image Processing and Raspberry Pi Camera  
-##### Created by @inkwellsiesta and Kristen Railey  
+##### Created by Kristen Railey and Leslie Watkins  
 ##### May 8th, 2016 
 -----------------------
 
