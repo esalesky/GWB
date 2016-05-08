@@ -1,5 +1,4 @@
 PImage img; //Declare variable of type PImage
-PImage solid_color = createImage(200, 200,RGB); //Solid color overlay
 
 void setup() {
   size(200,200); //Change size of image. 
